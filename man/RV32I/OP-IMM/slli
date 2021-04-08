@@ -1,0 +1,13 @@
+slli reg_dest, reg_src, value
+
+{imm[7], imm[5], rs1[5], func3[3], rd[5], opcode[7]}
+
+example :
+
+slli  t0, t1, 0x7ff
+
+imm    : 0x7ff  : 0x7   = 0000000 00111
+rs1    : t0     : 0x6   = 00110
+func3  : slli   : 0x1   = 001
+rd     : t1     : 0x5   = 00101
+opcode : OP-IMM : 0x13  = 0010011

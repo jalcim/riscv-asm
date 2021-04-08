@@ -1,0 +1,13 @@
+sltiu reg_dest, reg_src, value
+
+{imm[12], rs1[5], func3[3], rd[5], opcode[7]}
+
+example :
+
+sltiu  t0, t1, 0x7ff
+
+imm    : 0x7ff  : 0x7FF = 011111111111
+rs1    : t0     : 0x6   = 00110
+func3  : sltiu  : 0x3   = 011
+rd     : t1     : 0x5   = 00101
+opcode : OP-IMM : 0x13  = 0010011
