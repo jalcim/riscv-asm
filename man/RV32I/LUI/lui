@@ -1,0 +1,11 @@
+lui reg_dest, value
+
+{imm[20], rd[5], opcode[7]}
+
+example :
+
+lui  t0, 0xbeef
+
+imm    : 0xbeef : 0xbeef = 00001011111011101111
+rd     : t1     : 0x5    = 00101
+opcode : LUI    : 0x37   = 0110111
