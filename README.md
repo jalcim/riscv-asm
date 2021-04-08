@@ -1,4 +1,4 @@
-ceci est mon travail de retro ingenieuring (la specification risc-v ne fournit pas les binaires des instructions)
+ceci est mon travail de retro engineering (la specification risc-v ne fournit pas les binaires des instructions)
 
 le repertoire man contient les pages de manuel que j'ai ecrit sur les binaires
 le repertoire C_src contient le desassembleur ainsi que l'assembleur
