@@ -35,17 +35,23 @@ void OPCODE(char *binary_raw, int sizefd)
 	case 0x6f://JAL
 	  JAL(inst);
 	  break;
-	case 0x67:
-	  printf("JALR\n");
+	case 0x67://JALR
+	  JALR(inst);
 	  break;
-	case 0x63:
-	  printf("BRANCH\n");
+	case 0x63://BRANCH
+	  BRANCH(inst);
 	  break;
-	case 0x3:
-	  printf("LOAD\n");
+	case 0x3://LOAD
+	  LOAD(inst);
 	  break;
 	case 0x23:
-	  printf("STORE\n");
+	  STORE(inst);
+	  break;
+	case 0xf://MISC-MEM
+	  //	  MISC_MEM();
+	  break;
+	case 0x73://SYSTEM
+	  //	  SYSTEM();
 	  break;
 	default :
 	  printf("unspecified opcode = 0x%x\n", inst & (0xff >> 1));

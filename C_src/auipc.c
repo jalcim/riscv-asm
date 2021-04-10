@@ -12,5 +12,5 @@ void AUIPC(unsigned int instr)
   instr >>= 5;
   imm = instr & 0xfffff;
 
-  printf("lui x%d, %x\n\n", rd, imm);
+  printf("auipc x%d, 0x%x\n", rd, imm);
 }

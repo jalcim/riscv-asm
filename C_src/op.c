@@ -1,30 +1,14 @@
 #include "header.h"
 
-void OP(unsigned int instr)
+void OP(unsigned int bin)
 {
-  unsigned int opcode;
-  unsigned int rd;
-  unsigned int funct3;
-  unsigned int rs1;
-  unsigned int rs2;
-  unsigned int funct7;
+  R_type *instr;
 
-  opcode = instr & 0x7f;
-  instr >>= 7;
-  rd = instr & 0x1f;
-  instr >>= 5;
-  funct3 = instr & 0x7;
-  instr >>= 3;
-  rs1 = instr & 0x1f;
-  instr >>= 5;
-  rs2 = instr & 0x1f;
-  instr >>= 5;
-  funct7 = instr & 0x7f;
-
-  switch (funct3)
+  instr = (t_instr *)&bin;
+  switch (instr->funct3)
     {
     case 0x0:
-      printf("%s ", funct7 ? "sub" : "add");
+      printf("%s ", instr->funct7 ? "sub" : "add");
       break;
     case 0x2:
       printf("slt ");
@@ -45,10 +29,10 @@ void OP(unsigned int instr)
       printf("sll ");
       break;
     case 0x5:
-      printf("%s ", funct7 ? "sra" : "srl");
+      printf("%s ", instr->funct7 ? "sra" : "srl");
       break;
     default :
       break;
     }
-  printf("x%d, x%d, x%d\n", rd, rs1, rs2);
+  printf("x%d, x%d, 0x%d\n", instr->rd, instr->rs1, instr->rs2);
 }

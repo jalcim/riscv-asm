@@ -51,6 +51,7 @@ void OP_IMM(unsigned int instr)
   instr >>= 5;
   imm = instr & 0xfff;
 
+  /*
   printf("imm = ");
   print_bin(imm, 12);
   printf("\trs1 = ");
@@ -62,13 +63,13 @@ void OP_IMM(unsigned int instr)
   printf("\topcode = ");
   print_bin(opcode, 7);
   printf("\n\n");
-
+  */
 
   OP_IMM_funct3(funct3);
   print_reg(rd);
   printf(", ");
   print_reg(rs1);
   printf(", ");
-  printf("0x%x\n\n\n", imm);
+  printf("0x%x\n", imm);
   
 }

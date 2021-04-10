@@ -40,7 +40,7 @@ _start:
 
 	bge  t0, t1, finish
 	bgeu t0, t1, finish
-	
+
 	lw  t0, 7(t1)
 	lh  t0, 7(t1)
 	lhu t0, 7(t1)
@@ -51,7 +51,12 @@ _start:
 	sh t0, 7(t1)
 	sb t0, 7(t1)
 	
-	
+	fence 
+	fence.i
 
+	ecall
+	ebreak
+
+	
 	
 finish:

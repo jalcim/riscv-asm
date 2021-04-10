@@ -1,6 +1,4 @@
-#include "header.h"
-
-void LUI(unsigned int instr)
+void U_type(unsigned int instr)
 {
   unsigned int opcode;
   unsigned int rd;
@@ -11,6 +9,4 @@ void LUI(unsigned int instr)
   rd = instr & 0x1f;
   instr >>= 5;
   imm = instr & 0xfffff;
-
-  printf("lui x%d, 0x%x\n", rd, imm);
 }
