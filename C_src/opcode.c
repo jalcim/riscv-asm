@@ -15,9 +15,6 @@ void OPCODE(char *binary_raw, int sizefd)
 
       cpt += cpt2;
       memcpy(&inst, instr, 4);
-      //      printf("instr = %x\n", inst);
-      //      print_bin(inst, 7);
-      //      printf("\n");
       switch (inst & 0x7f) //1111111
 	{
 	case 0x13://OP-IMM
@@ -48,13 +45,13 @@ void OPCODE(char *binary_raw, int sizefd)
 	  STORE(&inst);
 	  break;
 	case 0xf://MISC-MEM
-	  //	  MISC_MEM();
+	  //MISC_MEM(instr);
 	  break;
 	case 0x73://SYSTEM
-	  //	  SYSTEM();
+	  //	  SYSTEM(not implemented);
 	  break;
 	default :
-	  printf("unspecified opcode = 0x%x\n", inst & (0xff >> 1));
+	  printf("unrecognized opcode = 0x%x\n", inst & (0xff >> 1));
 	break;
 	}
     }
