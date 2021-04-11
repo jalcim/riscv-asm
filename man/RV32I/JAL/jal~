@@ -1,3 +1,0 @@
-Cette instruction permet de faire un saut et une liaison.
-
-JAL rd,offset
