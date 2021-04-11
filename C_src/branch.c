@@ -1,7 +1,12 @@
 #include "header.h"
 
-void BRANCH(unsigned int instr)
+void BRANCH(unsigned int *bin)
 {
+  B_type *instr;
+
+  instr = (B_type *)bin;
+
+  /*
   unsigned int opcode;
   unsigned int rs1, rs2;
   unsigned int funct3;
@@ -22,8 +27,8 @@ void BRANCH(unsigned int instr)
   imm |= instr & (0x3f << 4);
   instr >>= 6;
   imm |= instr & (0x1 << 11);
-
-  switch(funct3)
+  */
+  switch(instr->funct3)
     {
     case 0:
       printf("beq ");
@@ -46,5 +51,5 @@ void BRANCH(unsigned int instr)
     default :
       break;
     }
-  printf("x%d, x%d, 0x%x\n", rs1, rs2, imm);
+  printf("x%d, x%d, 0xx\n", instr->rs1, instr->rs2);//, instr->imm);
 }

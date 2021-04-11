@@ -1,7 +1,11 @@
 #include "header.h"
 
-void AUIPC(unsigned int instr)
+void AUIPC(unsigned int *bin)
 {
+  U_type *instr;
+
+  instr = (U_type *)bin;
+  /*
   unsigned int opcode;
   unsigned int rd;
   unsigned int imm;
@@ -11,6 +15,6 @@ void AUIPC(unsigned int instr)
   rd = instr & 0x1f;
   instr >>= 5;
   imm = instr & 0xfffff;
-
-  printf("auipc x%d, 0x%x\n", rd, imm);
+  */
+  printf("auipc x%d, 0x%x\n", instr->rd, instr->imm31_12);
 }

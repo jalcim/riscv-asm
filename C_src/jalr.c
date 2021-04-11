@@ -1,7 +1,12 @@
 #include "header.h"
 
-void JALR(unsigned int instr)
+void JALR(unsigned int *bin)
 {
+  I_type *instr;
+
+  instr = (I_type *)bin;
+
+  /*
   int opcode;
   int rd;
   int funct3;
@@ -17,6 +22,7 @@ void JALR(unsigned int instr)
   rs1 = instr & 0x1f;
   instr >>= 5;
   imm = instr & 0x7ff;
+  */
 
-  printf("jalr x%d, x%d, 0x%x\n", rd, rs1, imm);
+  printf("jalr x%d, x%d, 0x%x\n", instr->rd, instr->rs1, instr->imm11_0);
 }

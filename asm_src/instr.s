@@ -51,7 +51,7 @@ _start:
 	sh t0, 7(t1)
 	sb t0, 7(t1)
 	
-	fence 
+	fence r, r
 	fence.i
 
 	ecall

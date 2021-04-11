@@ -15,7 +15,7 @@ hello.o:
 	riscv32-unknown-elf-as -o melimelo.o asm_src/melimelo.s
 	riscv32-unknown-elf-as -o instr.o asm_src/instr.s
 	riscv32-unknown-elf-as -o reg.o asm_src/reg.s
-	gcc C_src/desassembleur.c \
+	gcc -Wall -Werror C_src/desassembleur.c \
 	C_src/opcode.c C_src/op_imm.c C_src/lui.c \
 	C_src/auipc.c C_src/op.c C_src/jal.c \
 	C_src/jalr.c C_src/branch.c C_src/load.c \

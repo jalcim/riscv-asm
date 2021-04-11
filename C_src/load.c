@@ -1,7 +1,12 @@
 #include "header.h"
 
-void LOAD(unsigned int instr)
+void LOAD(unsigned int *bin)
 {
+  I_type *instr;
+
+  instr = (I_type *)bin;
+  
+  /*
   unsigned int opcode;
   unsigned int rd;
   unsigned int funct3;
@@ -17,8 +22,8 @@ void LOAD(unsigned int instr)
   rs1 = instr & 0x1f;
   instr >>= 5;
   imm = instr & 0xfff;
-
-  switch(funct3)
+  */
+  switch(instr->funct3)
     {
     case 0x2:
       printf("lw ");
@@ -38,5 +43,5 @@ void LOAD(unsigned int instr)
     default :
       break;
     }
-  printf("x%d, x%d, 0x%x\n", rd, rs1, imm);
+  printf("x%d, x%d, 0x%x\n", instr->rd, instr->rs1, instr->imm11_0);
 }

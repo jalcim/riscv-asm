@@ -21,31 +21,31 @@ void OPCODE(char *binary_raw, int sizefd)
       switch (inst & 0x7f) //1111111
 	{
 	case 0x13://OP-IMM
-	  OP_IMM(inst);
+	  OP_IMM(&inst);
 	  break;
 	case 0x37://LUI
-	  LUI(inst);
+	  LUI(&inst);
 	  break;
 	case 0x17://AUIPC
-	  AUIPC(inst);
+	  AUIPC(&inst);
 	  break;
 	case 0x33://OP
-	  OP(inst);
+	  OP(&inst);
 	  break;
 	case 0x6f://JAL
-	  JAL(inst);
+	  JAL(&inst);
 	  break;
 	case 0x67://JALR
-	  JALR(inst);
+	  JALR(&inst);
 	  break;
 	case 0x63://BRANCH
-	  BRANCH(inst);
+	  BRANCH(&inst);
 	  break;
 	case 0x3://LOAD
-	  LOAD(inst);
+	  LOAD(&inst);
 	  break;
 	case 0x23:
-	  STORE(inst);
+	  STORE(&inst);
 	  break;
 	case 0xf://MISC-MEM
 	  //	  MISC_MEM();

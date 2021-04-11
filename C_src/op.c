@@ -1,10 +1,10 @@
 #include "header.h"
 
-void OP(unsigned int bin)
+void OP(unsigned int *bin)
 {
   R_type *instr;
 
-  instr = (t_instr *)&bin;
+  instr = (R_type *)bin;
   switch (instr->funct3)
     {
     case 0x0:

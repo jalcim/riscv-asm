@@ -1,7 +1,11 @@
 #include "header.h"
 
-void JAL(unsigned int instr)
+void JAL(unsigned int *bin)
 {
+  J_type *instr;
+
+  instr = (J_type *)bin;
+  /*
   unsigned int opcode;
   unsigned int rd;
   unsigned int imm;
@@ -17,6 +21,6 @@ void JAL(unsigned int instr)
   imm |= instr & 0x3ff;
   instr >>= 10;
   imm |= (instr & 0x1) << 19;
-
-  printf("jal x%d, 0x%x\n", rd, imm);
+  */
+  printf("jal x%d, 0xx\n", instr->rd);//, instr->imm);
 }

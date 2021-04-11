@@ -1,7 +1,11 @@
 #include "header.h"
 
-void STORE(unsigned int instr)
+void STORE(unsigned int *bin)
 {
+  S_type *instr;
+
+  instr = (S_type *)bin;
+  /*
   unsigned int opcode;
   unsigned int imm;
   unsigned int funct3;
@@ -18,8 +22,8 @@ void STORE(unsigned int instr)
   rs2 = instr & 0x1f;
   instr >>= 5;
   imm |= instr & (0x7f << 5);
-
-  switch(funct3)
+  */
+  switch(instr->funct3)
     {
     case 0x0:
       printf("sb ");
@@ -28,10 +32,12 @@ void STORE(unsigned int instr)
       printf("sh ");
       break;
     case 0x2:
+
+
       printf("sw ");
       break;
     default :
       break;
     }
-  printf("x%d, %x(x%d)\n", rs2, imm, rs1);
+  printf("x%d, x(x%d)\n", instr->rs2, /*instr->imm,*/ instr->rs1);
 }
