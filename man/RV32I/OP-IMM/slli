@@ -1,3 +1,5 @@
+Cette instruction permet d'effectuer un décalage logique vers la gauche d'une valeur immédiate.
+
 slli reg_dest, reg_src, value
 
 {imm[7], imm[5], rs1[5], func3[3], rd[5], opcode[7]}

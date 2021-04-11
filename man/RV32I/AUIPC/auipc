@@ -1,3 +1,5 @@
+Cette instruction permet d'ajouter un immédiat dans la partie supérieur du registre PC.
+
 auipc reg_dest, value
 
 {imm[20], rd[5], opcode[7]}

@@ -1,3 +1,5 @@
+Cette instruction permet de fixer une valeur immédiate naturel inférieur.
+
 sltiu reg_dest, reg_src, value
 
 {imm[12], rs1[5], func3[3], rd[5], opcode[7]}

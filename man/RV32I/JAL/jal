@@ -1,0 +1,9 @@
+Cette instruction permet de faire un saut et une liaison.
+
+jal ret_addr, value
+
+{imm[20], imm[10:1], imm[11], imm[19:12], rd[5:0], opcode[6:0}
+
+example :
+
+jal rd, offset

@@ -1,0 +1,16 @@
+Cette instruction permet d'effectuer une soustraction.
+
+sub reg_dest, reg_src1, reg_src2
+
+{funct7[7], rs2[5], rs1[5], func3[3], rd[5], opcode[7]}
+
+example :
+
+sub  t0, t1, t2
+
+funct7 :        : 0x20  = 0100000
+rs2    : t2     : 0x7   = 00111
+rs1    : t1     : 0x6   = 00110
+func3  : sub    : 0x0   = 000
+rd     : t0     : 0x5   = 00101
+opcode : OP-IMM : 0x33  = 0110011
