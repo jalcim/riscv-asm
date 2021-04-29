@@ -13,6 +13,7 @@ unsigned int B_immediate(B_type *instr)
   bim->imm7 = instr->imm11;
   bim->imm31 = instr->imm12;
   value = *(unsigned int *)bim;
+  free(bim);
 
   return (value);
 }
