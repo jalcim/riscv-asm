@@ -6,30 +6,6 @@
 #include <sys/mman.h>
 #include <stdio.h>
 
-void OPCODE(char *binary_raw, int sizefd);
-
-void OP_IMM(unsigned int *instr);
-void LUI(unsigned int *instr);
-void AUIPC(unsigned int *instr);
-
-void OP(unsigned int *instr);
-
-void JAL(unsigned int *instr);
-void JALR(unsigned int *instr);
-
-void BRANCH(unsigned int *instr);
-
-void LOAD(unsigned int *instr);
-
-void STORE(unsigned int *instr);
-
-void print_reg(unsigned int reg);
-void print_bin(unsigned int instr, int size);
-void *projectm(int fd, int prot, int nb_oct);
-int size_fd(int fd);
-char *ft_writefd(int fd, int nb_oct);
-char *ft_readfd(int fd, int nb_oct);
-
 typedef struct s_R_type R_type;
 struct s_R_type
 {
@@ -94,3 +70,33 @@ struct s_J_type
   unsigned int imm20    : 1;
 }__attribute__((packed));
 
+typedef struct s_B_imm B_imm;
+
+struct s_B_imm
+{
+  unsigned int imm0     : 1;
+  unsigned int imm11_8  : 4;
+  unsigned int imm30_25 : 6;
+  unsigned int imm7     : 1;
+  unsigned int imm31    : 20;  
+}__attribute__((packed));
+
+void OPCODE(char *binary_raw, int sizefd);
+
+void OP_IMM(unsigned int *instr);
+void LUI(unsigned int *instr);
+void AUIPC(unsigned int *instr);
+void OP(unsigned int *instr);
+void JAL(unsigned int *instr);
+void JALR(unsigned int *instr);
+void BRANCH(unsigned int *instr);
+void LOAD(unsigned int *instr);
+void STORE(unsigned int *instr);
+
+unsigned int B_immediate(B_type *instr);
+
+void print_bin(unsigned int instr, int size);
+void *projectm(int fd, int prot, int nb_oct);
+int size_fd(int fd);
+char *ft_writefd(int fd, int nb_oct);
+char *ft_readfd(int fd, int nb_oct);

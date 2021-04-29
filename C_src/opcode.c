@@ -15,6 +15,8 @@ void OPCODE(char *binary_raw, int sizefd)
 
       cpt += cpt2;
       memcpy(&inst, instr, 4);
+      print_bin(inst, 32);
+      printf("\n");
       switch (inst & 0x7f) //1111111
 	{
 	case 0x13://OP-IMM

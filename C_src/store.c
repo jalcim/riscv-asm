@@ -5,24 +5,7 @@ void STORE(unsigned int *bin)
   S_type *instr;
 
   instr = (S_type *)bin;
-  /*
-  unsigned int opcode;
-  unsigned int imm;
-  unsigned int funct3;
-  unsigned int rs1, rs2;
 
-  opcode = instr & 0x7f;
-  instr >>= 7;
-  imm = instr & 0x1f;
-  instr >>= 5;
-  funct3 = instr & 0x7;
-  instr >>= 3;
-  rs1 = instr & 0x1f;
-  instr >>= 5;
-  rs2 = instr & 0x1f;
-  instr >>= 5;
-  imm |= instr & (0x7f << 5);
-  */
   switch(instr->funct3)
     {
     case 0x0:
@@ -32,8 +15,6 @@ void STORE(unsigned int *bin)
       printf("sh ");
       break;
     case 0x2:
-
-
       printf("sw ");
       break;
     default :

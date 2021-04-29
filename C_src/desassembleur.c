@@ -27,11 +27,6 @@ int main(int argc, char **argv)
   munmap(binary_raw, sizefd);
 }
 
-void print_reg(unsigned int reg)
-{
-  printf("x%d", reg);
-}
-
 void print_bin(unsigned int instr, int size)
 {
   unsigned int mask = 1;
@@ -70,7 +65,6 @@ int size_fd(int fd)
   fstat(fd, &status);
 
   return (status.st_size);
-
 }
 
 void *projectm(int fd, int prot, int nb_oct)

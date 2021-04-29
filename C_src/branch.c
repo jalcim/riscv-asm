@@ -3,9 +3,9 @@
 void BRANCH(unsigned int *bin)
 {
   B_type *instr;
-
+  unsigned int imm;
+  
   instr = (B_type *)bin;
-
   switch(instr->funct3)
     {
     case 0:
@@ -29,5 +29,6 @@ void BRANCH(unsigned int *bin)
     default :
       break;
     }
-  printf("x%d, x%d, 0xx\n", instr->rs1, instr->rs2);//, instr->imm);
+  imm = B_immediate(instr);
+  printf("x%d, x%d, 0x%x\n", instr->rs1, instr->rs2, imm);
 }
