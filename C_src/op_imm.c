@@ -3,6 +3,7 @@
 void OP_IMM(unsigned int *bin)
 {
   I_type *instr;
+  unsigned int imm;
 
   instr = (I_type *)bin;
   switch (instr->funct3)
@@ -34,5 +35,6 @@ void OP_IMM(unsigned int *bin)
     default:
       break;
     }
-  printf("x%d, x%d 0x%x\n", instr->rd, instr->rs1, instr->imm11_0);  
+  imm = I_immediate(instr);
+  printf("x%d, x%d 0x%x\n", instr->rd, instr->rs1, imm);  
 }

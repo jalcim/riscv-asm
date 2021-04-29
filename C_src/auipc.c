@@ -3,7 +3,9 @@
 void AUIPC(unsigned int *bin)
 {
   U_type *instr;
+  unsigned int imm;
 
   instr = (U_type *)bin;
-  printf("auipc x%d, 0x%x\n", instr->rd, instr->imm31_12);
+  imm = U_immediate(instr);
+  printf("auipc x%d, 0x%x\n", instr->rd, imm);
 }

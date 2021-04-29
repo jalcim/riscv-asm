@@ -70,15 +70,53 @@ struct s_J_type
   unsigned int imm20    : 1;
 }__attribute__((packed));
 
+typedef struct s_I_imm I_imm;
+typedef struct s_S_imm S_imm;
 typedef struct s_B_imm B_imm;
+typedef struct s_U_imm U_imm;
+typedef struct s_J_imm J_imm;
+
+struct s_I_imm
+{
+  unsigned int inst20     : 1;
+  unsigned int inst24_21  : 4;
+  unsigned int inst30_25  : 6;
+  unsigned int inst31     : 21;
+}__attribute__((packed));
+
+struct s_S_imm
+{
+  unsigned int inst7     : 1;
+  unsigned int inst11_8  : 4;
+  unsigned int inst30_25 : 6;
+  unsigned int inst31    : 21;
+}__attribute__((packed));
 
 struct s_B_imm
 {
-  unsigned int imm0     : 1;
-  unsigned int imm11_8  : 4;
-  unsigned int imm30_25 : 6;
-  unsigned int imm7     : 1;
-  unsigned int imm31    : 20;  
+  unsigned int padding   : 1;
+  unsigned int inst11_8  : 4;
+  unsigned int inst30_25 : 6;
+  unsigned int inst7     : 1;
+  unsigned int inst31    : 20;  
+}__attribute__((packed));
+
+struct s_U_imm
+{
+  unsigned int padding   : 12;
+  unsigned int inst19_12 : 8;
+  unsigned int inst30_20 : 11;  
+  unsigned int inst31    : 1;  
+}__attribute__((packed));
+
+struct s_J_imm
+{
+  unsigned int padding   : 1;
+  unsigned int inst24_21 : 4;
+  unsigned int inst30_25 : 6;
+  unsigned int inst20    : 1;
+  unsigned int inst19_12 : 8;
+  unsigned int inst31    : 1;
 }__attribute__((packed));
 
 void OPCODE(char *binary_raw, int sizefd);
@@ -93,7 +131,11 @@ void BRANCH(unsigned int *instr);
 void LOAD(unsigned int *instr);
 void STORE(unsigned int *instr);
 
+unsigned int I_immediate(I_type *instr);
+unsigned int S_immediate(S_type *instr);
 unsigned int B_immediate(B_type *instr);
+unsigned int U_immediate(U_type *instr);
+unsigned int J_immediate(J_type *instr);
 
 void print_bin(unsigned int instr, int size);
 void *projectm(int fd, int prot, int nb_oct);

@@ -19,7 +19,9 @@ hello.o:
 	C_src/opcode.c C_src/op_imm.c C_src/lui.c \
 	C_src/auipc.c C_src/op.c C_src/jal.c \
 	C_src/jalr.c C_src/branch.c C_src/load.c \
-	C_src/store.c C_src/B_imm.c \
+	C_src/store.c C_src/I_imm.c \
+	C_src/S_imm.c C_src/B_imm.c \
+	C_src/U_imm.c C_src/J_imm.c \
 	-o desassembleur
 
 clean:

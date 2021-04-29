@@ -3,9 +3,9 @@
 void STORE(unsigned int *bin)
 {
   S_type *instr;
+  unsigned int imm;
 
   instr = (S_type *)bin;
-
   switch(instr->funct3)
     {
     case 0x0:
@@ -20,5 +20,6 @@ void STORE(unsigned int *bin)
     default :
       break;
     }
-  printf("x%d, x(x%d)\n", instr->rs2, /*instr->imm,*/ instr->rs1);
+  imm = S_immediate(instr);
+  printf("x%d, 0x%x(x%d)\n", instr->rs2, imm,instr->rs1);
 }
